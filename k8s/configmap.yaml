@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloud-cost-config
+data:
+  AWS_ACCESS_KEY: <base64-encoded-aws-access-key>
+  AWS_SECRET_KEY: <base64-encoded-aws-secret-key>
+  GCP_CREDENTIALS: <base64-encoded-gcp-credentials-json>
+  AZURE_SUBSCRIPTION_ID: <base64-encoded-azure-subscription-id>

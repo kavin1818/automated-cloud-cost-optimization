@@ -1,0 +1,20 @@
+# Base image for Python 3.10
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements file
+COPY requirements.txt .
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy all the application code
+COPY . .
+
+# Expose the port for Flask (or your web framework)
+EXPOSE 5000
+
+# Command to run the Flask web dashboard
+CMD ["python", "app.py"]

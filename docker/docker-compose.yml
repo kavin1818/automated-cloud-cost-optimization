@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  cost-analysis:
+    build:
+      context: .
+      dockerfile: Dockerfile.cost_analysis
+    container_name: cost_analysis_service
+    ports:
+      - "5001:5001"
+    networks:
+      - cloud_tool_network
+
+  web-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.web_dashboard
+    container_name: web_dashboard_service
+    ports:
+      - "5000:5000"
+    networks:
+      - cloud_tool_network
+    depends_on:
+      - cost-analysis
+
+networks:
+  cloud_tool_network:
+    driver: bridge

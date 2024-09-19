@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Cost Optimization Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Cloud Cost Optimization Dashboard</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/current_usage">Current Usage</a></li>
+            <li><a href="/historical_data">Historical Data</a></li>
+            <li><a href="/recommendations">Recommendations</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="content">
+            <h2>{{ title }}</h2>
+            <div id="data-container">
+                {{ content | safe }}
+            </div>
+        </section>
+
+        <section class="report-download">
+            <h3>Download Optimization Report</h3>
+            <form method="get" action="/download_report">
+                <button type="submit">Download Report (PDF)</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Cloud Cost Optimization Tool. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

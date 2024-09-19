@@ -1,0 +1,10 @@
+# Dockerfile for Data Collector Microservice
+FROM python:3.9-slim
+
+WORKDIR /app
+COPY data_collector/requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY data_collector/ ./
+
+CMD ["python", "aws_collector.py"]
